@@ -49,11 +49,49 @@
     dogs.forEach(dog => {
         console.log(`This is ${dog.name}`); // goes through const 'dog' above and list names of the dogs in the array
         console.log(`${dog.name} is ${dog.age} years old`); // goes through const 'dog' above and list names and ages of the dogs in the array
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`); // goes through const 'dog' above and list names and ages of the dogs in the array and times their age by 7 to give dog years
     });
 
-    // counting
+    dogs.forEach(dog => {
+        console.group(`${dog.name}`); // creates a group start
+        console.log(`This is ${dog.name}`); // goes through const 'dog' above and list names of the dogs in the array
+        console.log(`${dog.name} is ${dog.age} years old`); // goes through const 'dog' above and list names and ages of the dogs in the array
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`); // goes through const 'dog' above and list names and ages of the dogs in the array and times their age by 7 to give dog years
+        console.groupEnd(`${dog.name}`); // stops the grouping
+    });
 
-    // timing
+    dogs.forEach(dog => {
+        console.groupCollapsed(`${dog.name}`); // creates a collasped group start
+        console.log(`This is ${dog.name}`); // goes through const 'dog' above and list names of the dogs in the array
+        console.log(`${dog.name} is ${dog.age} years old`); // goes through const 'dog' above and list names and ages of the dogs in the array
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`); // goes through const 'dog' above and list names and ages of the dogs in the array and times their age by 7 to give dog years
+        console.groupEnd(`${dog.name}`); // stops the grouping
+    });
+
+
+    // counting - this counts how many times things are listed
+    console.count('Wes');
+    console.count('Gary');
+    console.count('Gary');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Gary');
+    console.count('Wes');
+    console.count('Wes');
+
+    // timing - tells how long it took to do something
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data'); // this ends the timing
+        console.log(data);
+      });
+
+
+      // Table makes a table of the array data
+      console.table(dogs)
 
   </script>
 </body>
